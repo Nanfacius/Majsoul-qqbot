@@ -1,6 +1,6 @@
 config = {
-    appid: '102281402', // qq机器人的appID (必填)
-    secret: 'dGtWAoS6kO2gL0fKzeJyeK0gM2iP6nUB', // qq机器人的secret (必填)
+    appid: '', // qq机器人的appID (必填)
+    secret: '', // qq机器人的secret (必填)
     sandbox: true, // 是否是沙箱环境 默认 false
     removeAt: true, // 移除第一个at 默认 false
     logLevel: 'info', // 日志等级 默认 info
