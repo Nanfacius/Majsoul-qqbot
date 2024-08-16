@@ -1,4 +1,5 @@
 const { Bot } = require('qq-group-bot')
+const { chat } = require('./chat')
 const handle = require('./handle.js')
 const config = require('./config.js')
 
@@ -7,13 +8,16 @@ const bot = new Bot(config)
 
 // 回复函数
 async function reply(e) {
-	let text = e.message[0].text
-	let cmd = text.split(' ')[0]
+	const text = e.message[0].text
+	const cmd = text.split(' ')[0]
 	if (["雀魂信息", "雀魂查询"].includes(cmd)) {
 		const res = await handle.majInfo(text)
-		console.log(res)
 		e.reply(res)
-}
+	}
+	if (["sc", "gpt"].includes(cmd)) {
+		const res = await chat(text)
+		e.reply(res)
+	}
 };
 
 // 启动机器人
