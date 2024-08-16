@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const url = 'https://apic.ohmygpt.com/v1/chat/completions';
-const apiKey = 'sk-rhAFWu1G9Fb236bc875AT3BLbkFJ2d4eF8F238Ad4F1Cb8e9';
+const apiKey = '';
 
 var request = {
     model: 'gpt-4o',
@@ -12,7 +12,7 @@ var request = {
         },
         // {
         //     role: 'user',
-        //     content: '泥嚎＄1�7',
+        //     content: 'æ³¥åšŽï¼„1¤7',
         // },
     ],
 };
