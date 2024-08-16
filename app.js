@@ -14,10 +14,6 @@ async function reply(e) {
 		const res = await handle.majInfo(text)
 		e.reply(res)
 	}
-	if (["sc", "gpt"].includes(cmd)) {
-		const res = await chat(text)
-		e.reply(res)
-	}
 };
 
 // 启动机器人
