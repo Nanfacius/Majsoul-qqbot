@@ -5,6 +5,17 @@ const config = require('./config.js')
 // 创建机器人
 const bot = new Bot(config)
 
+// 回复函数
+async function reply(e) {
+	let text = e.message[0].text
+	let cmd = text.split(' ')[0]
+	if (["雀魂信息", "雀魂查询"].includes(cmd)) {
+		const res = await handle.majInfo(text)
+		console.log(res)
+		e.reply(res)
+}
+};
+
 // 启动机器人
 bot.start().then(() => {
 	// 频道被动回复
@@ -17,19 +28,11 @@ bot.start().then(() => {
 	})
 	// 群聊被动回复
 	bot.on('message.group', async (e) => {
-		console.log(e.message.split(' '))
-		e.reply('hello world')
+		await reply(e)
 	})
 	// 私聊被动回复
 	bot.on('message.private', async (e) => {
-		let text = e.message[0].text
-		let cmd = text.split(' ')[0]
-		if (["雀魂信息", "雀魂查询"].includes(cmd)) {
-			const res = await handle.majInfo(text)
-			console.log(res)
-			e.reply(res)
-		}
-		// e.reply(res)
+		await reply(e)
 	})
 	// 主动发送频道消息
 	bot.sendGuildMessage(channel_id, 'hello')
